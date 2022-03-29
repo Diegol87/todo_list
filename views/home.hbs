@@ -1,0 +1,36 @@
+ <div class="container m-6">
+        <div class="columns">
+            <div class="column">
+                <h1>Servicio web</h1>
+                <div class="card mt-6">
+                    <div class="card-content">
+                        <div class="content">
+                            
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Titulo</th>
+                                        <th>Descripcion</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {{#each todos}}
+                                    <tr>
+                                        <th>{{this.id}}</th>
+                                        <td>{{this.title}}</td>
+                                        <td>{{this.description}}</td>
+                                        <td><a
+                                            href="http://localhost:3000/todo-delete/{{this.id}}"
+                                        >Eliminar</a></td>
+                                    </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

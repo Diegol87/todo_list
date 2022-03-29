@@ -1,0 +1,29 @@
+
+<div id="App" class="container mt-6">
+<h1 class="title is-5">Crea un nuevo item</h1>
+
+    
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Titulo</label>
+        <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">Escribe el nombre del curso</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" name="description" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-primary" value="Save" onclick="crear()">Agregar</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>     
+    const entradas = document.querySelectorAll("input")
+
+    const crear = () => {
+        const form = Object.fromEntries([...entradas].map((e) => ([e.name, e.value])))
+    axios.post("/todos", form)
+    .then(() => (window.location.href="/"))
+    }
+</script>
