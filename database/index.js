@@ -1,12 +1,13 @@
 require('dotenv').config()
 
 const { Pool } = require('pg')
+const connectionString = process.env.DATABASE_URL || 'postgresql://esadiz87@localhost:5432/simple_db'
+
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    password: 'esadiz87',
-    database: 'simple_db',
-    port: 5432,
+    connectionString: connectionString,
+    ssl: {
+        rejectUnauthorized: false
+    }
 })
 
 const getTodos = () => {

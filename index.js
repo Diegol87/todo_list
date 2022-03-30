@@ -2,7 +2,7 @@ const express = require('express')
 const { engine } = require('express-handlebars')
 const { getTodos, createTodo, deleteTodo } = require('./database')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.use('/static', express.static('public'))
 
